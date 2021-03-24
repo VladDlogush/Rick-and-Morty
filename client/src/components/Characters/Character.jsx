@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { getCharacter } from '../selectors';
+import { getCharacter } from '../../selectors';
 
 const Character = ({ handleGoback }) => {
   const character = useSelector(state => getCharacter(state));

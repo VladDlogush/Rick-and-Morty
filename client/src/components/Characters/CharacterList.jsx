@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCharactersOperation } from '../redux/characters/charactersOperation';
-import { getCurrentCharacters } from '../selectors';
+import { getCharactersOperation } from '../../redux/characters/charactersOperations';
+import { getCurrentCharacters } from '../../selectors';
 
 const CharacterList = ({ match }) => {
   const dispatch = useDispatch();

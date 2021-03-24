@@ -6,8 +6,8 @@ import {
   getCharactersFulfill,
   setCharacter,
 } from './charactersActions';
+import { getFilteredCharacter } from '../../utils';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getCharactersOperation = () => dispatch => {
   dispatch(getCharactersRequest());
   API.fetchCharacters()
@@ -20,11 +20,7 @@ export const getCharactersOperation = () => dispatch => {
 
 export const setCharacterOperation = match => (dispatch, getState) => {
   const { charactersData } = getState();
-  const { characterId } = match.params;
 
-  const filteredCharacter = charactersData.find(
-    personage => personage.id === Number(characterId),
-  );
-
+  const filteredCharacter = getFilteredCharacter(match, charactersData);
   dispatch(setCharacter(filteredCharacter));
 };

@@ -1,12 +1,16 @@
-import { applyMiddleware, createStore } from 'redux';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
-// import usersReducer from './users/usersReducer';
 import charactersReducer from './characters/charactersReducer';
+import myWatchListReducer from './myWatchList/myWatchListReducer';
+
+const rootReducer = combineReducers({
+  charactersReducer,
+  myWatchListReducer,
+});
 
 const store = createStore(
-  charactersReducer,
+  rootReducer,
   composeWithDevTools(applyMiddleware(reduxThunk)),
 );
 

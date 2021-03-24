@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { getCharactersOperation } from '../redux/characters/charactersOperations';
 import {
   setCharactersByCurrentPage,
   setCurrentPage,
@@ -18,11 +19,16 @@ const Pagination = () => {
   const charactersPerPage = useSelector(state => getCharactersPerPage(state));
 
   const pageNumbers = [];
+  console.log(characters);
 
   // Get current posts
   const indexOfLastPost = currentPage * charactersPerPage;
   const indexOfFirstPost = indexOfLastPost - charactersPerPage;
   const currentCharacters = characters.slice(indexOfFirstPost, indexOfLastPost);
+
+  useEffect(() => {
+    dispatch(getCharactersOperation());
+  }, []);
 
   useEffect(() => {
     dispatch(setCharactersByCurrentPage(currentCharacters));

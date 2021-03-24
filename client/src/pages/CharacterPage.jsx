@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   getCharactersOperation,
   setCharacterOperation,
-} from '../redux/characters/charactersOperation';
-import Character from '../components/Character';
+} from '../redux/characters/charactersOperations';
+import Character from '../components/Characters/Character';
 import { getCharacter } from '../selectors';
 
 const CharacterPage = ({ match, history }) => {
